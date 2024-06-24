@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Saikat's Portfolio
 
-## Getting Started
+Welcome to my portfolio! This project showcases my skills and projects as a React.js/Next.js developer. It features a modern design with animations to enhance user experience.
 
-First, run the development server:
+## Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Check out the live version of my [portfolio](https://saikat-portfolio.vercel.app/).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Table of Contents
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Contact](#contact)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features
 
-## Learn More
+- **Modern Design**: Clean and sleek user interface with responsive design.
+- **Animations**: Smooth and engaging animations using Framer Motion and Three.js.
+- **Theming**: Support for light and dark themes using `next-themes`.
+- **3D Visualization**: Interactive 3D elements created with Three.js and react-three-fiber.
+- **Error Tracking**: Integrated Sentry for monitoring and tracking errors.
 
-To learn more about Next.js, take a look at the following resources:
+## Technologies Used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Frontend
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **React**: A JavaScript library for building user interfaces.
+- **Next.js**: A React framework with hybrid static & server rendering, and more.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+- **Framer Motion**: A library for animations and gestures.
+- **Three.js**: A JavaScript 3D library.
+- **react-three-fiber**: A React renderer for Three.js.
+- **react-icons**: A library of icons for React.
+- **react-lottie**: A library to render Lottie animations in React.
 
-## Deploy on Vercel
+### Development Tools
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **TypeScript**: A typed superset of JavaScript.
+- **ESLint**: A tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
+- **PostCSS**: A tool for transforming CSS with JavaScript plugins.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+- **Sentry**: Application monitoring and error tracking software.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+## Contact
+
+Feel free to reach out to me for any inquiries or collaboration opportunities:
+
+- **Email**: [saikotroydev@gmail.com](mailto:saikotroydev@gmail.com)
+- **LinkedIn**: [Saikat-Roy-Chandan](https://www.linkedin.com/in/saikot-roy-chandan/)
+- **GitHub**: [Saikat-Roy](https://github.com/SAIKOT-ROY)
+
+Thank you for visiting my portfolio!
+"""
+
