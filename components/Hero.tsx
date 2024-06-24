@@ -52,7 +52,7 @@ const Hero = () => {
                     />
 
                     <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-                        Hi! I&apos;m Saikat, a React/Next.js Developer based in Croatia.
+                        Hi! I&apos;m <span className="font-bold text-violet-300/95">Saikat 😃</span>, a React/Next.js Developer based in <span className="text-violet-300/95">Bangladesh</span>.
                     </p>
 
                     <a href="#about">
