@@ -13,7 +13,8 @@ export const gridItems = [
         className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
         imgClassName: "w-full h-full",
         titleClassName: "justify-end",
-        img: "/b1.svg",
+        img: "https://img.freepik.com/free-photo/person-looking-futuristic-mystical-other-worldly-sky_23-2150946781.jpg?t=st=1719315412~exp=1719319012~hmac=a5929fdcec221b63efa4b3013c5b9216d4af7d276b4244ce2fc34b4e7b1dcb96&w=1380",
+        // img: "/b1.svg",
         spareImg: "",
     },
     {
@@ -72,68 +73,59 @@ export const gridItems = [
 export const projects = [
     {
         id: 1,
-        title: "3D Solar System Planets to Explore",
+        title: "A community of Developers to Connect",
         des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-        img: "/p1.svg",
-        iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-        link: "/ui.earth.com",
+        img: "https://i.ibb.co/VL6jry6/Screen-Shot-2024-06-25-at-17-47-01.png",
+        iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/c.svg", '/mongosse.svg', '/mono.svg'],
+        link: "https://dev-flow-orcin.vercel.app/",
     },
     {
         id: 2,
-        title: "Yoom - Video Conferencing App",
-        des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-        img: "/p2.svg",
-        iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+        title: "XTREME- a summer camp for kids",
+        des: "Experience the ultimate summer adventure at our camp, where fun, learning, and friendship come together in the great outdoors!",
+        img: "https://i.ibb.co/R7Dq1yZ/Screen-Shot-2024-06-25-at-17-51-05.png",
+        iconLists: ["/re.svg", "/tail.svg", "/js.svg", "/Firebase_icon.svg.svg", "/fm.svg", '/mono.svg'],
         link: "/ui.yoom.com",
     },
     {
         id: 3,
-        title: "AI Image SaaS - Canva Application",
-        des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
-        img: "/p3.svg",
-        iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-        link: "/ui.aiimg.com",
+        title: "Brainwave a modern web design",
+        des: "A REAL Software-as-a-Service app with AI features.",
+        img: "https://i.ibb.co/j9t24jk/Screen-Shot-2024-06-25-at-17-43-32.png",
+        iconLists: ["/re.svg", "/tail.svg", "/js.svg",],
+        link: "https://brainwave-eight-pearl.vercel.app/",
     },
     {
         id: 4,
         title: "Animated Apple Iphone 3D Website",
         des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-        img: "/p4.svg",
+        img: "https://i.ibb.co/7KZQJm6/Screen-Shot-2024-06-25-at-17-56-01.png",
         iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-        link: "/ui.apple.com",
+        link: "https://iphone-15-pro-clone-three.vercel.app/",
     },
 ];
 
 export const testimonials = [
     {
         quote:
-            "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Michael Johnson",
-        title: "Director of AlphaStream Technologies",
+            "During his three-month internship, Saikot showcased impressive skills in frontend development using Next.js and React.js, as well as backend development with Express.js. He consistently delivered robust solutions, demonstrating a strong understanding of both frontend and backend technologies. Saikot's ability to work effectively across the stack and his dedication to learning and improving make him a promising developer with a well-rounded skill set.",
+        name: "Saurov Paul",
+        title: "Chief Technology Officer at Unicorniz Innovation",
+        img: 'https://i.ibb.co/S3b16vW/Capture.png'
     },
     {
         quote:
-            "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Michael Johnson",
-        title: "Director of AlphaStream Technologies",
+            "Saikot really impressed us as our frontend developer using React.js. He consistently delivered top-notch code and handled challenges with ease. Saikot's professionalism, technical skills, and teamwork made him a fantastic addition to our frontend development team.",
+        name: "Asif Khan",
+        title: "Full Stack Developer at Remote Job BD",
+        img: 'https://i.ibb.co/HB2jLpY/420515154-1146831266355051-7796328848477122947-n.jpg'
     },
     {
         quote:
-            "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Michael Johnson",
-        title: "Director of AlphaStream Technologies",
-    },
-    {
-        quote:
-            "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Michael Johnson",
-        title: "Director of AlphaStream Technologies",
-    },
-    {
-        quote:
-            "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Michael Johnson",
-        title: "Director of AlphaStream Technologies",
+            "Saikot was a great asset to our part-time project as a frontend developer using React.js. His enthusiasm and skills were impressive, and he quickly understood what we needed. Saikot's work was polished and he always aimed for the best. His positive attitude made working with him enjoyable and helped our project succeed.",
+        name: "Mashrafi Ahnam Safin",
+        title: "Full Stack Developer at Hygwell",
+        img: 'https://i.ibb.co/GVZ7K0J/420486634-383375451012724-1137638877257986707-n.jpg'
     },
 ];
 
@@ -174,22 +166,22 @@ export const workExperience = [
     {
         id: 1,
         title: "Frontend Engineer Intern",
-        desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+        desc: "Assisted in the development of a web-based platform using React.js/Next.js, enhancing interactivity.",
         className: "md:col-span-2",
         thumbnail: "/exp1.svg",
     },
     {
         id: 2,
-        title: "Mobile App Dev - JSM Tech",
-        desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
-        className: "md:col-span-2", // change to md:col-span-2
+        title: "Junior Web Developer",
+        desc: "Collaborated with a team to develop a responsive company website using JavaScrip, and React.js. Implemented key features such as dynamic content loading and user authentication.",
+        className: "md:col-span-2",
         thumbnail: "/exp2.svg",
     },
     {
         id: 3,
-        title: "Freelance App Dev Project",
-        desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-        className: "md:col-span-2", // change to md:col-span-2
+        title: "Freelance Web Dev Project",
+        desc: "Led a team of developers for a client project, guiding it from initial concept to deployment.",
+        className: "md:col-span-2",
         thumbnail: "/exp3.svg",
     },
     {
@@ -205,13 +197,16 @@ export const socialMedia = [
     {
         id: 1,
         img: "/git.svg",
+        link: 'https://github.com/SAIKOT-ROY'
     },
     {
         id: 2,
         img: "/twit.svg",
+        link: 'https://x.com/SaikotRC'
     },
     {
         id: 3,
         img: "/link.svg",
+        link: 'https://www.linkedin.com/in/saikot-roy-chandan/'
     },
 ];
