@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { cn } from "@/utils/cn";
@@ -11,6 +12,7 @@ export const InfiniteMovingCards = ({
     className,
 }: {
     items: {
+        img: string | undefined;
         quote: string;
         name: string;
         title: string;
