@@ -13,7 +13,7 @@ export const gridItems = [
         className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
         imgClassName: "w-full h-full",
         titleClassName: "justify-end",
-        img: "https://img.freepik.com/free-photo/person-looking-futuristic-mystical-other-worldly-sky_23-2150946781.jpg?t=st=1719315412~exp=1719319012~hmac=a5929fdcec221b63efa4b3013c5b9216d4af7d276b4244ce2fc34b4e7b1dcb96&w=1380",
+        img: "/pro-gamer.png",
         // img: "/b1.svg",
         spareImg: "",
     },
