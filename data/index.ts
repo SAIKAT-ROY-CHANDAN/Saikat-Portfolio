@@ -74,7 +74,7 @@ export const projects = [
     {
         id: 1,
         title: "A community of Developers to Connect",
-        des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
+        des: "Community Website for developers to meet share there problems and ideas!.",
         img: "https://i.ibb.co/VL6jry6/Screen-Shot-2024-06-25-at-17-47-01.png",
         iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/c.svg", '/mongosse.svg', '/mono.svg'],
         link: "https://dev-flow-orcin.vercel.app/",
