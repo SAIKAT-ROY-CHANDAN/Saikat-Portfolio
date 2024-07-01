@@ -173,7 +173,7 @@ export const workExperience = [
     {
         id: 2,
         title: "Junior Web Developer",
-        desc: "Collaborated with a team to develop a responsive company website using JavaScrip, and React.js. Implemented key features such as dynamic content loading and user authentication.",
+        desc: "Collaborated with a team to develop a responsive company website using JavaScrip, and React.js.",
         className: "md:col-span-2",
         thumbnail: "/exp2.svg",
     },
