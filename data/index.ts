@@ -209,4 +209,9 @@ export const socialMedia = [
         img: "/link.svg",
         link: 'https://www.linkedin.com/in/saikot-roy-chandan/'
     },
+    {
+        id: 4,
+        img: "/github-svgrepo-com (1).svg",
+        link: 'https://github.com/SAIKOT-ROY'
+    },
 ];
