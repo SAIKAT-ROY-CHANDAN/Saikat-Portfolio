@@ -4,9 +4,11 @@ import { BackgroundGradientAnimation } from "./GradientBg";
 import MagicButton from "./MagicButton";
 import Lottie from "react-lottie";
 import GridGlobe from "./GridGlobe";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import animationData from "@/data/confetti.json"
+import Image from "next/image";
+
 export const BentoGrid = ({
     className,
     children,
@@ -60,6 +62,13 @@ export const BentoGridItem = ({
         },
     };
 
+    useEffect(() => {
+        if (copied) {
+            const timer = setTimeout(() => setCopied(false), 2000);
+            return () => clearTimeout(timer);
+        }
+    }, [copied]);
+
     const handleCopy = () => {
         const text = "saikotroydev@gmail.com";
         navigator.clipboard.writeText(text);
@@ -81,7 +90,9 @@ export const BentoGridItem = ({
             <div className={`${id === 6 && "flex justify-center"} h-full`}>
                 <div className="w-full h-full absolute">
                     {img && (
-                        <img
+                        <Image
+                            width={1080}
+                            height={720}
                             src={img}
                             alt={img}
                             className={cn(imgClassName, "object-cover object-center ")}
@@ -93,10 +104,11 @@ export const BentoGridItem = ({
                         } `}
                 >
                     {spareImg && (
-                        <img
+                        <Image
                             src={spareImg}
                             alt={spareImg}
-                            //   width={220}
+                            width={1080}
+                            height={720}
                             className="object-cover object-center w-full h-full"
                         />
                     )}

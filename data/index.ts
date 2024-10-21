@@ -5,6 +5,15 @@ export const navItems = [
     { name: "Contact", link: "#contact" },
 ];
 
+export const navigation = [
+    { id: "1", title: "Blogs", link: "/blog", },
+    { id: "1", title: "Projects", link: "#projects", },
+    { id: "2", title: "Testimonials", link: "#testimonials", },
+    { id: "3", title: "About", link: "#about", },
+    { id: "5", title: "Dashboard", link: "/dashboard", onlyMobile: true, },
+];
+
+
 export const gridItems = [
     {
         id: 1,
@@ -117,7 +126,7 @@ export const testimonials = [
         quote:
             "Saikot really impressed us as our frontend developer using React.js. He consistently delivered top-notch code and handled challenges with ease. Saikot's professionalism, technical skills, and teamwork made him a fantastic addition to our frontend development team.",
         name: "Asif Khan",
-        title: "Full Stack Developer at Remote Job BD",
+        title: "Full Stack Developer at MN Tech",
         img: 'https://i.ibb.co/HB2jLpY/420515154-1146831266355051-7796328848477122947-n.jpg'
     },
     {
