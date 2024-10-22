@@ -6,15 +6,13 @@ import Link from "next/link";
 import { Button } from "./ui/MovingBorders";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-
-// https://i.ibb.co.com/YyM8KX4/saikat-logo.png
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 const Header = () => {
     const pathname = usePathname()
     const [openNavigation, setOpenNavigation] = useState(false);
     const [hash, setHash] = useState("");
-
-    const role = "admin-logan"
+    const { user } = useUser()
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -69,11 +67,11 @@ const Header = () => {
                     </div>
 
                 </nav>
-                {!role ?
+                {user && (
                     <Link href="/dashboard" className="hidden hover:text-def hover:scale-105 duration-150 lg:flex">
                         Dashboard
-                    </Link> : <></>
-                }
+                    </Link>
+                )}
 
                 <Button
                     className="ml-auto lg:hidden"

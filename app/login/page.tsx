@@ -1,5 +1,6 @@
 import BoxReveal from "@/components/ui/box-reveal"
 import { getSession } from "@auth0/nextjs-auth0"
+import Link from "next/link"
 
 const page = async () => {
     const session = await getSession()
@@ -26,9 +27,11 @@ const page = async () => {
                 </BoxReveal>
 
                 <BoxReveal boxColor={"#5046e6"} duration={0.5}>
-                    <button className="mt-[1.6rem] bg-[#5046e6] px-6 py-3 font-black hover:bg-blue-700 rounded-lg border border-white-200">
-                        <a href="/api/auth/login">Login</a>
-                    </button>
+                    <Link href="/api/auth/login">
+                        <button className="mt-[1.6rem] bg-[#5046e6] px-6 py-3 font-black hover:bg-blue-700 rounded-lg border border-white-200">
+                            Login
+                        </button>
+                    </Link>
                 </BoxReveal>
             </div>
         </div>
