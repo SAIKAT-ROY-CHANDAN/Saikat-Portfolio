@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+.quill {
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.ql-container {
+  border: none !important;
+}
+
+.custom-quill {
+  border: none !important;
+}
+
+.custom-quill .ql-container {
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0%;
+}
+
+.custom-quill .ql-editor.ql-blank::before {
+  font-style: normal; 
+  color: #aaa; 
+  font-size: medium;
+}
+
+
+
 
 @layer base {
   :root {

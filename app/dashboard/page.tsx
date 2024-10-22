@@ -1,8 +1,11 @@
+import BlogEditor from "@/components/BlogEditor"
 
 
 const DashboardPage = () => {
   return (
-    <div>DashboardPage</div>
+    <div>
+      <BlogEditor />
+    </div>
   )
 }
 
