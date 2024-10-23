@@ -1,8 +1,8 @@
 'use client'
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css'; 
-import Image from 'next/image'; 
+import 'react-quill/dist/quill.snow.css';
+import Image from 'next/image';
 import { Button } from './ui/button';
 
 const BlogEditor = () => {
@@ -10,6 +10,7 @@ const BlogEditor = () => {
     const [title, setTitle] = useState('');
     const [tags, setTags] = useState('');
     const [coverImage, setCoverImage] = useState<string | null>(null);
+    const [coverImageName, setCoverImageName] = useState<string | null>(null);
 
     const toolbarOptions = [
         [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
@@ -26,6 +27,7 @@ const BlogEditor = () => {
         const file = e.target.files?.[0];
         if (file) {
             setCoverImage(URL.createObjectURL(file));
+            setCoverImageName(file.name)
         }
     };
 
@@ -36,7 +38,6 @@ const BlogEditor = () => {
             content,
             coverImage
         });
-       
     };
 
     return (
@@ -55,9 +56,12 @@ const BlogEditor = () => {
                             accept="image/*"
                             onChange={handleImageChange}
                             className="border border-gray-300 bg-gray-50 rounded-md p-2 w-full"
-                            placeholder='Add cover image'
+                            placeholder="Add cover image"
                         />
                     </div>
+                        {coverImageName && (
+                            <span className="ml-4 text-sm text-white-100">{coverImageName}</span>
+                        )}
 
                     {/* Title Input */}
                     <div className="mb-4">
@@ -112,16 +116,16 @@ const BlogEditor = () => {
                 {/* Preview Section */}
                 <div className='w-1/2'>
                     <h3 className="text-lg font-semibold mb-2">Preview:</h3>
-                    <div className="border p-4 rounded-md bg-gray-100 h-96">
-                    {coverImage && (
-                        <Image
-                            width={1080}
-                            height={720}
-                            src={coverImage}
-                            alt="Cover Preview"
-                            className="rounded-md mt-2 mb-4 size-16"
-                        />
-                    )}
+                    <div className="border p-4 rounded-md bg-gray-100 h-[620px]">
+                        {coverImage && (
+                            <Image
+                                width={1080}
+                                height={720}
+                                src={coverImage}
+                                alt="Cover Preview"
+                                className="rounded-md mt-2 mb-4 size-24 object-cover"
+                            />
+                        )}
                         <h2 className="text-xl font-bold text-black-100">{title}</h2>
                         {tags.trim() && (
                             <div className="flex flex-wrap mt-2">
@@ -132,7 +136,7 @@ const BlogEditor = () => {
                                 ))}
                             </div>
                         )}
-                            <div className='text-black'>
+                        <div className='text-black'>
                             <div dangerouslySetInnerHTML={{ __html: content }} />
                         </div>
                     </div>
