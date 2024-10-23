@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import logo from '@/public/s-logo.svg'
 import { navigation } from "@/data";
 import Link from "next/link";
-import { Button } from "./ui/MovingBorders";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useUser } from "@auth0/nextjs-auth0/client";
@@ -40,13 +39,13 @@ const Header = () => {
             className={`fixed top-0 left-0 w-full z-[999] lg:bg-n-8/90 lg:backdrop-blur-sm ${openNavigation ? "bg-n-8" : "bg-n-8/90 backdrop-blur-sm"
                 }`}
         >
-            <div className="flex items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
-                <Link href='/' className="block w-[12rem] xl:mr-8">
+            <div className="flex lg:items-center justify-between lg:justify-normal  px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
+                <Link href='/' className="block w-8 lg:w-[10rem] xl:mr-8">
                     <Image src={logo} className="h-8" width={190} height={40} alt="switch" />
                 </Link>
 
                 <nav
-                    className={`${openNavigation ? "flex bg-white/80" : "hidden"
+                    className={`${openNavigation ? "flex bg-black-200" : "hidden"
                         } fixed top-[5rem] left-0 right-0 bottom-0 bg-n-8 lg:static lg:flex lg:mx-auto lg:bg-transparent`}
                 >
                     <div className="relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row">
@@ -73,16 +72,12 @@ const Header = () => {
                     </Link>
                 )}
 
-                <Button
+                <button
                     className="ml-auto lg:hidden"
                     onClick={toggleNavigation}
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-                    </svg>
-
                     <MenuSvg openNavigation={openNavigation} />
-                </Button>
+                </button>
             </div>
         </div>
     )
