@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { Button } from './ui/button';
 import { compressImage, uploadImageToImgbb } from '@/utils/uploadImage';
 import dynamic from 'next/dynamic';
-import { submitBlogPost } from '@/lib/api';
 import { createBlog } from '@/lib/actions/blogActions';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
@@ -50,6 +49,7 @@ const BlogEditor = () => {
             }
         }
     };
+
     const handleSubmit = async () => {
         setLoading(true);
 
@@ -76,7 +76,6 @@ const BlogEditor = () => {
         // }
 
         setLoading(false)
-
     };
 
     return (
