@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { Button } from './ui/button';
 import { compressImage, uploadImageToImgbb } from '@/utils/uploadImage';
 import dynamic from 'next/dynamic';
+import { submitBlogPost } from '@/lib/api';
+import { createBlog } from '@/lib/actions/blogActions';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
@@ -50,18 +52,33 @@ const BlogEditor = () => {
     };
     const handleSubmit = async () => {
         setLoading(true);
-        
+
         const blogData = {
             title,
             tags: tags.split(',').map(tag => tag.trim()),
             content,
             coverImage
         };
-    
-        console.log(blogData)
-        setLoading(false);
+
+        try {
+            const result = await createBlog(blogData);
+            console.log('Blog created:', result);
+          } catch (error) {
+            console.error('Error creating blog:', error);
+          }
+
+        // const result = await submitBlogPost(blogData)
+
+        // if (result.success) {
+        //     console.log('Blog submitted successfully', result.result);
+        // } else {
+        //     console.error('Failed to submit blog', result.error);
+        // }
+
+        setLoading(false)
+
     };
-    
+
     return (
         <div className="p-4 rounded-lg shadow-md">
             <h1 className="heading">
@@ -127,7 +144,7 @@ const BlogEditor = () => {
                     />
 
                     <Button
-                        // disabled={loading}
+                        disabled={loading}
                         onClick={handleSubmit}
                         className="mt-8 bg-white text-black-100 cursor-pointer font-semibold py-2 px-4 rounded-md"
                     >
