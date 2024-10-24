@@ -14,7 +14,6 @@ export const connectToDatabase = async () => {
     return;
   }
 
-
   try {
     await mongoose.connect(process.env.MONGODB_URI as string, {
       dbName: 'portfolio',
