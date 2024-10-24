@@ -54,7 +54,7 @@ export function Skills() {
                 className="relative flex h-[500px] w-full justify-center overflow-hidden p-10 md:shadow-xl my-20"
                 ref={containerRef}
             >
-                <div className="flex size-full flex-col max-w-4xl h-[250px] items-stretch justify-between gap-10">
+                <div className="flex size-full flex-col max-w-5xl h-[250px] items-stretch justify-between gap-10">
                     <div className="flex flex-row items-center justify-around">
                         <Circle ref={div14Ref}>
                             <Icons.css />

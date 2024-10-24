@@ -1,9 +1,12 @@
 'use client'
 import React, { useState } from 'react';
-import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import Image from 'next/image';
 import { Button } from './ui/button';
+import { compressImage, uploadImageToImgbb } from '@/utils/uploadImage';
+import dynamic from 'next/dynamic';
+
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 const BlogEditor = () => {
     const [content, setContent] = useState('');
@@ -11,6 +14,7 @@ const BlogEditor = () => {
     const [tags, setTags] = useState('');
     const [coverImage, setCoverImage] = useState<string | null>(null);
     const [coverImageName, setCoverImageName] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
 
     const toolbarOptions = [
         [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
@@ -23,23 +27,41 @@ const BlogEditor = () => {
         ['clean'],
     ];
 
-    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+    const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (file) {
-            setCoverImage(URL.createObjectURL(file));
-            setCoverImageName(file.name)
+            setLoading(true);
+            setCoverImageName(file.name);
+
+            try {
+                const compressedImage = await compressImage(file);
+                const uploadedImageUrl = await uploadImageToImgbb(compressedImage);
+
+                if (uploadedImageUrl) {
+                    setCoverImage(uploadedImageUrl);
+                }
+            } catch (error) {
+                console.error('Error handling image:', error);
+            } finally {
+                setLoading(false);
+            }
         }
     };
-
-    const handleSubmit = () => {
-        console.log({
+    const handleSubmit = async () => {
+        setLoading(true);
+        
+        const blogData = {
             title,
-            tags,
+            tags: tags.split(',').map(tag => tag.trim()),
             content,
             coverImage
-        });
+        };
+    
+        console.log(blogData)
+        setLoading(false);
     };
-
+    
     return (
         <div className="p-4 rounded-lg shadow-md">
             <h1 className="heading">
@@ -59,9 +81,9 @@ const BlogEditor = () => {
                             placeholder="Add cover image"
                         />
                     </div>
-                        {coverImageName && (
-                            <span className="ml-4 text-sm text-white-100">{coverImageName}</span>
-                        )}
+                    {coverImageName && (
+                        <span className="ml-4 text-sm text-white-100">{coverImageName}</span>
+                    )}
 
                     {/* Title Input */}
                     <div className="mb-4">
@@ -104,8 +126,8 @@ const BlogEditor = () => {
                         }}
                     />
 
-                    {/* Submit Button */}
                     <Button
+                        // disabled={loading}
                         onClick={handleSubmit}
                         className="mt-8 bg-white text-black-100 cursor-pointer font-semibold py-2 px-4 rounded-md"
                     >
@@ -113,7 +135,6 @@ const BlogEditor = () => {
                     </Button>
                 </div>
 
-                {/* Preview Section */}
                 <div className='w-1/2'>
                     <h3 className="text-lg font-semibold mb-2">Preview:</h3>
                     <div className="border p-4 rounded-md bg-gray-100 h-[620px]">

@@ -1,5 +1,4 @@
 "use client"
-import { cn } from "@/utils/cn";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import MagicButton from "./MagicButton";
 import Lottie from "react-lottie";
@@ -8,6 +7,7 @@ import { useEffect, useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import animationData from "@/data/confetti.json"
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 export const BentoGrid = ({
     className,
