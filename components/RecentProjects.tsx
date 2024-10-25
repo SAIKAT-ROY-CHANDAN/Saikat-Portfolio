@@ -6,7 +6,7 @@ import { IProject } from "@/types";
 
 const RecentProjects = async () => {
 
-  const response = await fetch(`http://localhost:5000/api/projects`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/projects`, {
     cache: 'no-store',
   });
 

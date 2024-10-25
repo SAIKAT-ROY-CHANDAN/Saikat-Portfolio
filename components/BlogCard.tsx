@@ -4,7 +4,7 @@ import { IBlog } from "@/types";
 import Link from "next/link";
 
 export async function BlogCard() {
-    const response = await fetch(`http://localhost:5000/api/blogs`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blogs`, {
         cache: 'no-store',
     });
 
