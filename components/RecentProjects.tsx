@@ -1,10 +1,17 @@
-import { projects } from "@/data";
 import { PinContainer } from "./ui/3d-pin";
 import { FaLocationArrow } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
+import { IProject } from "@/types";
 
-const RecentProjects = () => {
+const RecentProjects = async () => {
+
+  const response = await fetch(`http://localhost:5000/api/projects`, {
+    cache: 'no-store',
+  });
+
+  const projects = await response.json();
+
   return (
     <div className="py-10" id="projects">
       <h1 className="heading">
@@ -12,7 +19,7 @@ const RecentProjects = () => {
         <span className="text-purple">recent projects</span>
       </h1>
       <div className="flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10">
-        {projects.map(({ id, title, des, img, iconLists, link }) => (
+        {projects.map(({ id, title, des, img, iconLists, link }: IProject) => (
           <div key={id} className="sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw]">
             <PinContainer title={link} href={title}>
               <Link href={link}>

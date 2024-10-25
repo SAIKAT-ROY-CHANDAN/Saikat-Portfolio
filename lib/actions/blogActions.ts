@@ -1,27 +1,21 @@
-'use server'
+// 'use server'
 
-import Blog from "@/models/Blog";
-import { connectToDatabase } from "../dbConnect";
-import { IBlog } from "@/types";
+// import Blog from "@/models/Blog";
+// import { connectToDatabase } from "../dbConnect";
 
+// export const getBlogs = async () => {
+//   try {
+//     await connectToDatabase();
 
-export const createBlog = async (params: IBlog) => {
-  try {
-    await connectToDatabase();
+//     const blogs = await Blog.find()
 
-    const newBlog = await Blog.create({
-      title: params.title,
-      tags: params.tags,
-      content: params.content,
-      coverImage: params.coverImage,
-    });
-    const plainBlog = newBlog.toObject();
+//     const plainBlogs = blogs.map(blog => blog.toObject());
 
-    console.log(plainBlog, 'Blog created successfully');
-    return plainBlog; // Return the plain object
+//     console.log(plainBlogs, 'Blogs fetched successfully');
+//     return plainBlogs;
 
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};
+//   } catch (error) {
+//     console.error("Error fetching blogs:", error);
+//     throw new Error('Failed to fetch blogs');
+//   }
+// };

@@ -8,7 +8,7 @@ const BlogSchema = new Schema({
     createdAt: { type: Date, default: Date.now },
 });
 
-// Check for an existing model or create a new one
 const Blog = models.Blog || model('Blog', BlogSchema);
+
 
 export default Blog;
