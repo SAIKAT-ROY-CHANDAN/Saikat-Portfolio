@@ -3,7 +3,6 @@ import BoxReveal from "@/components/ui/box-reveal"
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-
 const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
