@@ -5,17 +5,20 @@ import { navigation } from "@/data";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { useUser } from "@auth0/nextjs-auth0/client";
+
 
 const Header = () => {
     const pathname = usePathname()
     const [openNavigation, setOpenNavigation] = useState(false);
     const [hash, setHash] = useState("");
-    const { user } = useUser()
+    const [userRole, setUserRole] = useState<string | null>(null);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
             setHash(window.location.hash);
+
+            const role = localStorage.getItem("userRole");
+            setUserRole(role);
         }
     }, [pathname]);
 
@@ -66,7 +69,7 @@ const Header = () => {
                     </div>
 
                 </nav>
-                {user && (
+                {userRole && (
                     <Link href="/dashboard" className="hidden hover:text-def hover:scale-105 duration-150 lg:flex">
                         Dashboard
                     </Link>
