@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { Button } from './ui/button';
 import { compressImage, uploadImageToImgbb } from '@/utils/uploadImage';
 import dynamic from 'next/dynamic';
-import { createBlog } from '@/lib/actions/blogActions';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
@@ -61,21 +60,25 @@ const BlogEditor = () => {
         };
 
         try {
-            const result = await createBlog(blogData);
-            console.log('Blog created:', result);
-          } catch (error) {
-            console.error('Error creating blog:', error);
-          }
-
-        // const result = await submitBlogPost(blogData)
-
-        // if (result.success) {
-        //     console.log('Blog submitted successfully', result.result);
-        // } else {
-        //     console.error('Failed to submit blog', result.error);
-        // }
-
-        setLoading(false)
+            const response = await fetch("https://portfolio-backend-tawny-gamma.vercel.app/api/blogs", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(blogData)
+            });
+    
+            if (!response.ok) {
+                throw new Error("Failed to create blog");
+            }
+    
+            const result = await response.json();
+            console.log("Blog created:", result);
+        } catch (error) {
+            console.error("Error creating blog:", error);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
