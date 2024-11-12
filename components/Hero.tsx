@@ -10,7 +10,8 @@ const Hero = () => {
 
     const handleDownload = () => {
         const link = document.createElement('a');
-        link.href = 'https://drive.google.com/uc?export=download&id=1CXhN2bhSm9Hx1RDSCZTDl-UQ6jEKdxMA';
+        link.href = 'https://drive.google.com/uc?export=download&id=1LR2eusq0Wh4Jk0Qyarlb4wB-qeXmj21m';
+        // link.href = 'https://drive.google.com/uc?export=download&id=1CXhN2bhSm9Hx1RDSCZTDl-UQ6jEKdxMA';
         link.setAttribute('download', 'Saikat_Roy_Resume.pdf');
         document.body.appendChild(link);
         link.click();
