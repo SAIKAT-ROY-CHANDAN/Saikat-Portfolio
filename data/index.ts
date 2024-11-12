@@ -6,7 +6,7 @@ export const navItems = [
 ];
 
 export const navigation = [
-    { id: "1", title: "Blogs", link: "/blog", },
+    { id: "1", title: "Blogs", link: "#blog", },
     { id: "1", title: "Projects", link: "#projects", },
     { id: "2", title: "Testimonials", link: "#testimonials", },
     { id: "2", title: "Education", link: "#education", },

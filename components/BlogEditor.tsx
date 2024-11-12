@@ -73,7 +73,7 @@ const BlogEditor = () => {
             }
     
             const result = await response.json();
-            console.log("Blog created:", result);
+            // console.log("Blog created:", result);
         } catch (error) {
             console.error("Error creating blog:", error);
         } finally {
@@ -177,7 +177,7 @@ const BlogEditor = () => {
                             </div>
                         )}
                         <div className='text-black'>
-                            <div dangerouslySetInnerHTML={{ __html: content }} />
+                            <div className='overflow-auto' dangerouslySetInnerHTML={{ __html: content }} />
                         </div>
                     </div>
                 </div>

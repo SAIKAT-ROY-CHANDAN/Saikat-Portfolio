@@ -2,38 +2,47 @@
 import BoxReveal from "@/components/ui/box-reveal"
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { BadgeCheck } from 'lucide-react'
 
 const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
+    const [loading, setLoading] = useState(false)
     const router = useRouter()
 
     const handleSubmit = async (event: any) => {
         event.preventDefault();
+        setLoading(true)
 
         try {
             const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/login`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ email, password }),
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, password }),
             });
-      
+
             const data = await response.json();
             if (response.ok) {
-              
-              localStorage.setItem("userEmail", data.email);
-              localStorage.setItem("userRole", data.role);
-              setMessage(data.message);
-              router.push('/')
+                document.cookie = `userEmail=${data.email}; path=/`;
+                document.cookie = `userRole=${data.role}; path=/`;
+
+                localStorage.setItem("userEmail", data.email);
+                localStorage.setItem("userRole", data.role);
+
+                setMessage(data.message);
+                router.push('/')
             } else {
-              setMessage(data.message || "Login failed");
+                setMessage(data.message || "Login failed");
             }
-          } catch (error) {
+        } catch (error) {
             setMessage("Login failed due to a network error.");
-          }
+        } finally {
+            setLoading(false)
+        }
+
     };
 
 
@@ -77,15 +86,15 @@ const LoginPage = () => {
 
                     <BoxReveal boxColor={"#5046e6"} duration={0.5}>
                         <button
+                            disabled={loading}
                             type="submit"
                             className="mt-4 bg-[#5046e6] px-6 py-3 font-black hover:bg-blue-700 rounded-lg border border-white-200"
                         >
-                            Login
+                            {!loading ? 'Login' : 'loading...'}
                         </button>
                     </BoxReveal>
                 </form>
-
-                {message && <p className="mt-4 text-center text-red-500">{message}</p>}
+                {message && <div className="mt-4 flex gap-x-2 font-medium text-start text-lg text-gray-300">{message}<BadgeCheck strokeWidth={1} /></div>}
             </div>
         </div>
     )

@@ -45,7 +45,7 @@ export async function BlogCard() {
                                         {blog.title}
                                     </h2>
                                     <div
-                                        className="font-normal my-4 text-sm text-white-100"
+                                        className="font-normal my-4 text-sm text-white-100 line-clamp-3"
                                         dangerouslySetInnerHTML={{ __html: blog.content || 'No description available.' }}
                                     />
                                     <div className="flex flex-row justify-between items-center mt-10">

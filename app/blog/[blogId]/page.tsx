@@ -13,9 +13,8 @@ const BlogDescriptionPage = async ({ params }: BlogDescriptionPageProps) => {
 
     const blog = await response.json();
 
-    console.log(blog);
     return (
-        <div className="relative bg-black-100 flex justify-center items-center flex-col overflow-clip mx-auto sm:px-10 px-5">
+        <div className="relative bg-black-100 mb-10 flex justify-center items-center flex-col overflow-clip mx-auto sm:px-10 px-5">
             <div>
                 <Image
                     src={blog.coverImage}
