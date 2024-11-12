@@ -18,7 +18,7 @@ export async function BlogCard() {
                 <span className="text-purple"> My Tech Journey</span>
             </h1>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 mt-10">
                 {blogs.map((blog: IBlog) => (
                     <div key={blog._id} className="w-80 mx-auto mt-10">
                         <FollowerPointerCard
@@ -30,7 +30,7 @@ export async function BlogCard() {
                             }
                         >
                             <div className="relative overflow-hidden h-full rounded-2xl transition duration-200 group bg-[#04071D] hover:shadow-xl border border-white-[0.2]">
-                                <div className="w-full aspect-w-16 aspect-h-10 bg-white-100 rounded-tr-lg rounded-tl-lg overflow-hidden xl:aspect-w-16 xl:aspect-h-10 relative">
+                                <div className="w-full aspect-w-16 aspect-h-10 h-[165px] bg-white-100 rounded-tr-lg rounded-tl-lg overflow-hidden xl:aspect-w-16 xl:aspect-h-10 relative">
                                     <Image
                                         src={blog.coverImage || '/default-image.jpg'}
                                         width={1080}
@@ -41,7 +41,7 @@ export async function BlogCard() {
                                     />
                                 </div>
                                 <div className="p-4">
-                                    <h2 className="font-bold my-4 text-lg text-white">
+                                    <h2 className="font-bold my-4 line-clamp-2 text-lg text-white">
                                         {blog.title}
                                     </h2>
                                     <div
