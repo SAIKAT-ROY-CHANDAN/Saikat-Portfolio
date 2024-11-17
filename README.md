@@ -1,5 +1,7 @@
 # Saikat's Portfolio
 
+![Saikat's Portfolio Screenshot](https://i.postimg.cc/R0s9SPFB/image.png)
+
 Welcome to my portfolio! This project showcases my skills and projects as a React.js/Next.js developer. It features a modern design with animations to enhance user experience.
 
 ## Live Demo
