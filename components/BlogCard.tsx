@@ -74,13 +74,15 @@ const TitleComponent = ({
     avatar: string;
 }) => (
     <div className="flex space-x-2 items-center">
-        <Image
-            src={avatar}
-            height="20"
-            width="20"
-            alt="thumbnail"
-            className="rounded-full border-2 border-white"
-        />
+        <div className="size-5">
+            <Image
+                src={avatar}
+                height={720}
+                width={1080}
+                alt="thumbnail"
+                className="rounded-full border-2 border-white"
+            />
+        </div>
         <p>{title}</p>
     </div>
 );
