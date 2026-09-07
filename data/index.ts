@@ -121,21 +121,24 @@ export const testimonials = [
             "During his three-month internship, Saikot showcased impressive skills in frontend development using Next.js and React.js, as well as backend development with Express.js. He consistently delivered robust solutions, demonstrating a strong understanding of both frontend and backend technologies. Saikot's ability to work effectively across the stack and his dedication to learning and improving make him a promising developer with a well-rounded skill set.",
         name: "Saurov Paul",
         title: "Chief Technology Officer at Unicorniz Innovation",
-        img: 'https://i.ibb.co/S3b16vW/Capture.png'
+        img: 'https://i.ibb.co/S3b16vW/Capture.png',
+        priority: 1,
     },
     {
         quote:
             "Saikot really impressed us as our frontend developer using React.js. He consistently delivered top-notch code and handled challenges with ease. Saikot's professionalism, technical skills, and teamwork made him a fantastic addition to our frontend development team.",
         name: "Asif Khan",
         title: "Full Stack Developer at MN Tech",
-        img: 'https://i.ibb.co/HB2jLpY/420515154-1146831266355051-7796328848477122947-n.jpg'
+        img: 'https://i.ibb.co/HB2jLpY/420515154-1146831266355051-7796328848477122947-n.jpg',
+        priority: 2,
     },
     {
         quote:
             "Saikot was a great asset to our part-time project as a frontend developer using React.js. His enthusiasm and skills were impressive, and he quickly understood what we needed. Saikot's work was polished and he always aimed for the best. His positive attitude made working with him enjoyable and helped our project succeed.",
         name: "Mashrafi Ahnam Safin",
         title: "Full Stack Developer at Hygwell",
-        img: 'https://i.ibb.co/GVZ7K0J/420486634-383375451012724-1137638877257986707-n.jpg'
+        img: 'https://i.ibb.co/GVZ7K0J/420486634-383375451012724-1137638877257986707-n.jpg',
+        priority: 3,
     },
 ];
 
@@ -175,31 +178,47 @@ export const companies = [
 export const workExperience = [
     {
         id: 1,
-        title: "Frontend Engineer Intern",
-        desc: "Assisted in the development of a web-based platform using React.js/Next.js, enhancing interactivity.",
+        title: "Lead Frontend Developer",
+        company: "",
+        place: "",
+        desc: "Developed and maintained user-facing features using modern frontend technologies.",
         className: "md:col-span-2",
-        thumbnail: "/exp1.svg",
+        thumbnail: "/exp4.svg",
+        period: "",
+        priority: 1,
     },
     {
         id: 2,
         title: "Junior Web Developer",
-        desc: "Collaborated with a team to develop a responsive company website using JavaScrip, and React.js.",
+        company: "",
+        place: "",
+        desc: "Collaborated with a team to develop a responsive company website using JavaScript, and React.js.",
         className: "md:col-span-2",
         thumbnail: "/exp2.svg",
+        period: "",
+        priority: 2,
     },
     {
         id: 3,
-        title: "Freelance Web Dev Project",
-        desc: "Led a team of developers for a client project, guiding it from initial concept to deployment.",
+        title: "Frontend Engineer Intern",
+        company: "",
+        place: "",
+        desc: "Assisted in the development of a web-based platform using React.js/Next.js, enhancing interactivity.",
         className: "md:col-span-2",
-        thumbnail: "/exp3.svg",
+        thumbnail: "/exp1.svg",
+        period: "",
+        priority: 3,
     },
     {
         id: 4,
-        title: "Lead Frontend Developer",
-        desc: "Developed and maintained user-facing features using modern frontend technologies.",
+        title: "Freelance Web Dev Project",
+        company: "",
+        place: "",
+        desc: "Led a team of developers for a client project, guiding it from initial concept to deployment.",
         className: "md:col-span-2",
-        thumbnail: "/exp4.svg",
+        thumbnail: "/exp3.svg",
+        period: "",
+        priority: 4,
     },
 ];
 
@@ -224,4 +243,47 @@ export const socialMedia = [
     //     img: "/github-svgrepo-com (1).svg",
     //     link: 'https://github.com/SAIKOT-ROY'
     // },
+];
+
+// Fallback skill set (used when the Skills collection is empty).
+// `icon` is either a built-in @/Icons key (react, css, nodejs...) or a full URL (e.g. devicon CDN).
+export const skills = [
+    { name: "React", icon: "react" },
+    { name: "Next.js", icon: "nextjs" },
+    { name: "TypeScript", icon: "typescript" },
+    { name: "JavaScript", icon: "javascript" },
+    { name: "Node.js", icon: "nodejs" },
+    { name: "Express", icon: "express" },
+    { name: "Prisma", icon: "prisma" },
+    { name: "MongoDB", icon: "mongodb" },
+    { name: "CSS", icon: "css" },
+    { name: "HTML", icon: "html" },
+    { name: "Framer Motion", icon: "framermotion" },
+    { name: "Firebase", icon: "firebase" },
+    { name: "Redux", icon: "redux" },
+    { name: "GitHub", icon: "github" },
+    {
+        name: "Tailwind",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+    },
+    {
+        name: "Three.js",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/threejs/threejs-original.svg",
+    },
+    {
+        name: "Docker",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+    },
+    {
+        name: "C",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg",
+    },
+    {
+        name: "C++",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
+    },
+    {
+        name: "Python",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+    },
 ];

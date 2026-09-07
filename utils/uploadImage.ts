@@ -20,9 +20,10 @@ export const uploadImageToImgbb = async (file: File): Promise<string | null> => 
     const formData = new FormData();
     formData.append('image', file);
 
+    const key = process.env.NEXT_PUBLIC_IMGBB_KEY ?? '272427d716bd5d87f04740819c42e62b';
     try {
         const response = await fetch(
-            `https://api.imgbb.com/1/upload?key=272427d716bd5d87f04740819c42e62b`,
+            `https://api.imgbb.com/1/upload?key=${key}`,
             {
                 method: 'POST',
                 body: formData,

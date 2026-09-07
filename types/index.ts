@@ -1,3 +1,5 @@
+export type SourcePlatform = 'native' | 'linkedin' | 'facebook' | 'x';
+
 export interface IBlog {
     _id: string
     title: string;
@@ -5,6 +7,13 @@ export interface IBlog {
     content: string;
     coverImage?: string | null;
     createdAt?: Date;
+    sourceUrl?: string;
+    sourcePlatform?: SourcePlatform;
+    authorName?: string;
+    authorHandle?: string;
+    authorAvatar?: string;
+    sourceText?: string;
+    postedAt?: string | Date;
 }
 
 export interface IProject {
@@ -14,6 +23,7 @@ export interface IProject {
     img: string;
     iconLists: string[];
     link: string;
+    priority?: number;
     createdAt?: Date;
     updatedAt?: Date;
 }
@@ -24,6 +34,10 @@ export interface WorkExperience {
     desc: string;
     className: string;
     thumbnail: string
+    period?: string;
+    company?: string;
+    place?: string;
+    priority?: number;
     createdAt?: Date;
     updatedAt?: Date;
 }

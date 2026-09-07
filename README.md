@@ -20,7 +20,6 @@ Check out the live version of my [portfolio](https://saikat-portfolio.vercel.app
 - **Animations**: Smooth and engaging animations using Framer Motion and Three.js.
 - **Theming**: Support for light and dark themes using `next-themes`.
 - **3D Visualization**: Interactive 3D elements created with Three.js and react-three-fiber.
-- **Error Tracking**: Integrated Sentry for monitoring and tracking errors.
 
 ## Technologies Used
 
@@ -41,7 +40,6 @@ Check out the live version of my [portfolio](https://saikat-portfolio.vercel.app
 - **ESLint**: A tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
 - **PostCSS**: A tool for transforming CSS with JavaScript plugins.
 - **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
-- **Sentry**: Application monitoring and error tracking software.
 
 
 
@@ -54,5 +52,3 @@ Feel free to reach out to me for any inquiries or collaboration opportunities:
 - **GitHub**: [Saikat-Roy](https://github.com/SAIKOT-ROY)
 
 Thank you for visiting my portfolio!
-"""
-

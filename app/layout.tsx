@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
-import { UserProvider } from '@auth0/nextjs-auth0/client';
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,22 +15,19 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-
 }>) {
   return (
-    <html lang="en">
-      <UserProvider>
-        <body className={inter.className}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-        </body>
-      </UserProvider>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body className={inter.className}>
+        <AnalyticsTracker />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
