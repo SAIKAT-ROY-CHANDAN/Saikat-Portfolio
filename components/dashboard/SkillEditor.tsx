@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { FaSpinner, FaUpload } from "react-icons/fa6";
 import Icons from "@/Icons";
 import { compressImage, uploadImageToImgbb } from "@/utils/uploadImage";
+import { skillCategories } from "@/data";
 
 interface SkillEditorProps {
   skill?: any | null;
@@ -51,6 +52,11 @@ const SkillEditor = ({ skill = null, onSaved }: SkillEditorProps) => {
 
   const [name, setName] = useState(skill?.name ?? "");
   const [icon, setIcon] = useState(skill?.icon ?? "");
+  const [category, setCategory] = useState(
+    skillCategories.some((c) => c.key === skill?.category)
+      ? skill.category
+      : "frontend"
+  );
   const [priority, setPriority] = useState(
     skill?.priority != null ? String(skill.priority) : ""
   );
@@ -88,6 +94,7 @@ const SkillEditor = ({ skill = null, onSaved }: SkillEditorProps) => {
     const payload = {
       name,
       icon: icon.trim(),
+      category: category as string,
       priority:
         priority === "" || Number.isNaN(Number(priority))
           ? undefined
@@ -138,6 +145,25 @@ const SkillEditor = ({ skill = null, onSaved }: SkillEditorProps) => {
               Lower number appears closer in the starfield.
             </p>
           </div>
+        </div>
+
+        <div>
+          <label className={labelCls}>Category</label>
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className={`${inputCls} appearance-none cursor-pointer`}
+          >
+            {skillCategories.map((c) => (
+              <option key={c.key} value={c.key} className="bg-black-200 text-white">
+                {c.label} — {c.tagline}
+              </option>
+            ))}
+          </select>
+          <p className="text-[11px] text-white-200 mt-1">
+            Groups this skill under one of the starfield sectors shown on the
+            homepage.
+          </p>
         </div>
 
         <div>

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/dbConnect";
+import { backfillSkillCategories } from "@/lib/skill-categories";
 import Skill from "@/models/Skill";
 import { skills as seedSkills } from "@/data";
 
@@ -35,6 +36,10 @@ export async function GET() {
         }))
       );
     }
+
+    // Legacy rows seeded before the `category` field existed get a category
+    // backfilled from the default sector mapping.
+    await backfillSkillCategories();
 
     const items = await Skill.find({}).sort({ priority: 1, createdAt: -1 });
     return NextResponse.json(items);

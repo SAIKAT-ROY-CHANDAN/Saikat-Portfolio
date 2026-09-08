@@ -1,5 +1,6 @@
 import { cache } from "react";
 import { connectToDatabase } from "@/lib/dbConnect";
+import { backfillSkillCategories } from "@/lib/skill-categories";
 import Blog from "@/models/Blog";
 import Project from "@/models/Project";
 import Experience from "@/models/Experience";
@@ -24,6 +25,7 @@ const toPlain = <T,>(rows: T[]): T[] =>
 export const getHomepageData = cache(async () => {
   try {
     await connectToDatabase();
+    await backfillSkillCategories();
   } catch {
     return {
       blogs: [],

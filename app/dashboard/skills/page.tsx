@@ -1,4 +1,5 @@
 import { connectToDatabase } from "@/lib/dbConnect";
+import { backfillSkillCategories } from "@/lib/skill-categories";
 import Skill from "@/models/Skill";
 import { skills as defaultSkills } from "@/data";
 import SkillManager from "@/components/dashboard/SkillManager";
@@ -9,6 +10,7 @@ export default async function SkillsPage() {
   let list: any[] = [];
   try {
     await connectToDatabase();
+    await backfillSkillCategories();
     list = JSON.parse(
       JSON.stringify(
         await Skill.find({}).sort({ priority: 1, createdAt: -1 }).lean().exec()

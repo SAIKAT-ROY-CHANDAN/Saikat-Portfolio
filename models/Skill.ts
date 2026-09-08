@@ -4,6 +4,11 @@ const SkillSchema = new Schema(
   {
     name: { type: String, required: true },
     icon: { type: String, default: "" },
+    category: {
+      type: String,
+      enum: ["frontend", "backend", "database", "devops", "tools"],
+      default: "frontend",
+    },
     priority: { type: Number, default: 0 },
   },
   { timestamps: true }

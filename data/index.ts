@@ -247,37 +247,87 @@ export const socialMedia = [
 
 // Fallback skill set (used when the Skills collection is empty).
 // `icon` is either a built-in @/Icons key (react, css, nodejs...) or a full URL (e.g. devicon CDN).
+// `category` groups the Technical Proficiencies constellation (frontend/backend/database/devops/tools).
+export type SkillCategory =
+    | "frontend"
+    | "backend"
+    | "database"
+    | "devops"
+    | "tools";
+
+export const skillCategories: {
+    key: SkillCategory;
+    label: string;
+    tagline: string;
+    accent: string;
+}[] = [
+    {
+        key: "frontend",
+        label: "Frontend",
+        tagline: "Interfaces & interaction",
+        accent: "#22d3ee",
+    },
+    {
+        key: "backend",
+        label: "Backend",
+        tagline: "Server logic & APIs",
+        accent: "#a78bfa",
+    },
+    {
+        key: "database",
+        label: "Database",
+        tagline: "Storage, query & ORM",
+        accent: "#34d399",
+    },
+    {
+        key: "devops",
+        label: "DevOps",
+        tagline: "Deploy & infrastructure",
+        accent: "#fb923c",
+    },
+    {
+        key: "tools",
+        label: "Tools",
+        tagline: "Everyday toolkit",
+        accent: "#f472b6",
+    },
+];
+
 export const skills = [
-    { name: "React", icon: "react" },
-    { name: "Next.js", icon: "nextjs" },
-    { name: "TypeScript", icon: "typescript" },
-    { name: "JavaScript", icon: "javascript" },
-    { name: "Node.js", icon: "nodejs" },
-    { name: "Express", icon: "express" },
-    { name: "Prisma", icon: "prisma" },
-    { name: "MongoDB", icon: "mongodb" },
-    { name: "CSS", icon: "css" },
-    { name: "HTML", icon: "html" },
-    { name: "Framer Motion", icon: "framermotion" },
-    { name: "Firebase", icon: "firebase" },
-    { name: "Redux", icon: "redux" },
-    { name: "GitHub", icon: "github" },
+    { name: "React", icon: "react", category: "frontend" },
+    { name: "Next.js", icon: "nextjs", category: "frontend" },
+    { name: "TypeScript", icon: "typescript", category: "frontend" },
+    { name: "JavaScript", icon: "javascript", category: "frontend" },
+    { name: "Node.js", icon: "nodejs", category: "backend" },
+    { name: "Express", icon: "express", category: "backend" },
+    { name: "Prisma", icon: "prisma", category: "database" },
+    { name: "MongoDB", icon: "mongodb", category: "database" },
+    { name: "CSS", icon: "css", category: "frontend" },
+    { name: "HTML", icon: "html", category: "frontend" },
+    { name: "Framer Motion", icon: "framermotion", category: "frontend" },
+    { name: "Firebase", icon: "firebase", category: "backend" },
+    { name: "Redux", icon: "redux", category: "frontend" },
+    { name: "GitHub", icon: "github", category: "tools" },
     {
         name: "Tailwind",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+        category: "frontend",
     },
-    { name: "Three.js", icon: "three" },
+    { name: "Three.js", icon: "three", category: "frontend" },
     {
         name: "Docker",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+        category: "devops",
     },
     {
         name: "MySQL",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg",
+        category: "database",
     },
     {
         name: "PostgreSQL",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
+        category: "database",
     },
-    { name: "Drizzle", icon: "drizzle" },
+    { name: "Drizzle", icon: "drizzle", category: "database" },
 ];
