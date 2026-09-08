@@ -1,7 +1,8 @@
 "use client";
-import { useState } from "react";
-import { FaSpinner } from "react-icons/fa6";
+import { useRef, useState } from "react";
+import { FaSpinner, FaUpload } from "react-icons/fa6";
 import Icons from "@/Icons";
+import { compressImage, uploadImageToImgbb } from "@/utils/uploadImage";
 
 interface SkillEditorProps {
   skill?: any | null;
@@ -55,6 +56,30 @@ const SkillEditor = ({ skill = null, onSaved }: SkillEditorProps) => {
   );
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
+  const iconFileRef = useRef<HTMLInputElement>(null);
+  const [uploadingIcon, setUploadingIcon] = useState(false);
+
+  const handleIconUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploadingIcon(true);
+    setMsg(null);
+    try {
+      const compressed = await compressImage(file);
+      const url = await uploadImageToImgbb(compressed);
+      if (url) {
+        setIcon(url);
+        setMsg("Icon uploaded!");
+      } else {
+        setMsg("Icon upload failed — try a different image.");
+      }
+    } catch {
+      setMsg("Icon upload failed — try a different image.");
+    } finally {
+      setUploadingIcon(false);
+      if (iconFileRef.current) iconFileRef.current.value = "";
+    }
+  };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -118,20 +143,36 @@ const SkillEditor = ({ skill = null, onSaved }: SkillEditorProps) => {
         <div>
           <label className={labelCls}>Icon</label>
           <input
-            value={icon}
-            onChange={(e) => setIcon(e.target.value)}
-            className={inputCls}
-            placeholder="react, css, nextjs ... or an image URL"
+            type="file"
+            accept="image/*"
+            ref={iconFileRef}
+            onChange={handleIconUpload}
+            className="hidden"
           />
+          <div className="flex gap-2">
+            <input
+              value={icon}
+              onChange={(e) => setIcon(e.target.value)}
+              className={inputCls}
+              placeholder="react, css, nextjs ... or an image URL"
+            />
+            <button
+              type="button"
+              onClick={() => iconFileRef.current?.click()}
+              disabled={uploadingIcon}
+              className="shrink-0 inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/15 text-white text-xs font-semibold px-3 py-2 rounded-lg disabled:opacity-50 transition"
+            >
+              {uploadingIcon ? <FaSpinner className="animate-spin" /> : <FaUpload />}
+              Upload
+            </button>
+          </div>
           <p className="text-[11px] text-white-200 mt-1">
             Use a built-in key (<span className="text-cyan-300">github, html,
             nodejs, nextjs, mongodb, typescript, javascript, redux, react,
-            framermotion, firebase, express, yarn, npm, css, prisma</span>) or
-            any image URL, e.g. a{" "}
-            <span className="text-white">
-              cdn.jsdelivr.net/gh/devicons/devicon/...svg
-            </span>{" "}
-            link.
+            framermotion, firebase, express, yarn, npm, css, prisma,
+            three, drizzle</span>), paste an image URL, or click{" "}
+            <span className="text-white">Upload</span> to pick a logo file from
+            your computer.
           </p>
           <div className="mt-3">
             <IconPreview icon={icon} />
