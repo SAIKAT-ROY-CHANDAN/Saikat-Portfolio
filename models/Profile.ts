@@ -15,6 +15,7 @@ const ProfileSchema = new Schema(
         "https://drive.google.com/uc?export=download&id=1jZ7DFzizL6wO_HUPhHhtXL9Cv-Bw3nOO",
     },
     email: { type: String, default: "saikotroydev@gmail.com" },
+    introVideoUrl: { type: String, default: "" },
     socials: {
       type: [{ img: String, link: String }],
       default: [],
@@ -28,9 +29,29 @@ const ProfileSchema = new Schema(
       ],
       default: [],
     },
+    gridTexts: {
+      type: [
+        {
+          tagline: { type: String, default: "" },
+          title: { type: String, default: "" },
+          subtitle: { type: String, default: "" },
+          description: { type: String, default: "" },
+          badge: { type: String, default: "" },
+          chips: { type: [String], default: [] },
+        },
+      ],
+      default: [],
+    },
   },
   { timestamps: true }
 );
+
+// During dev hot-reload Mongoose caches the compiled model, so schema edits
+// would be silently ignored (strict mode strips new fields on save).
+// Delete any cached model so the latest schema always takes effect.
+if (models.Profile) {
+  delete models.Profile;
+}
 
 const Profile = models.Profile || model("Profile", ProfileSchema);
 

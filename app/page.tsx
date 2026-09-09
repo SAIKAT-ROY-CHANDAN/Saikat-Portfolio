@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Grid from "@/components/Grid";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import IntroVideo from "@/components/IntroVideo";
 import RecentProjects from "@/components/RecentProjects";
 import { Skills } from "@/components/Skills";
 import { getHomepageData } from "@/lib/server-data";
@@ -37,8 +38,11 @@ export default async function Home() {
       <div className="max-w-7xl w-full">
         <Header />
         <Hero profile={data.profile} />
+        <Suspense fallback={null}>
+          <IntroVideo videoUrl={data.profile?.introVideoUrl} />
+        </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
-          <Grid profile={data.profile} />
+          <Grid profile={data.profile} skills={data.skills} />
         </Suspense>
         <Suspense fallback={<SectionSkeleton lines={2} />}>
           <Experience items={data.experience} />

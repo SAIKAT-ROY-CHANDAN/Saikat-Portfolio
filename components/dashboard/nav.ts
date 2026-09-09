@@ -4,6 +4,7 @@ import {
   LuFolderKanban,
   LuGraduationCap,
   LuLayoutDashboard,
+  LuLayoutGrid,
   LuMessageSquareQuote,
   LuPenLine,
   LuUser,
@@ -57,5 +58,11 @@ export const dashboardNav = [
     label: "Profile",
     icon: LuUser,
     description: "Hero, about & contact",
+  },
+  {
+    href: "/dashboard/bentogrid",
+    label: "Bento Grid",
+    icon: LuLayoutGrid,
+    description: "Homepage about grid texts",
   },
 ] as const;

@@ -35,7 +35,25 @@ export async function PUT(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   await connectToDatabase();
   const body = await req.json();
-  const profile = await Profile.findOneAndUpdate({ key: "main" }, body, {
+
+  const FIELDS = [
+    "heroTagline",
+    "heroTitle",
+    "heroSubtitle",
+    "cvLink",
+    "email",
+    "introVideoUrl",
+    "socials",
+    "gridTexts",
+    "aboutTexts",
+  ] as const;
+
+  const update: Record<string, unknown> = {};
+  for (const f of FIELDS) {
+    if (body[f] !== undefined) update[f] = body[f];
+  }
+
+  const profile = await Profile.findOneAndUpdate({ key: "main" }, update, {
     new: true,
     upsert: true,
   });
